@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CdM 2026 — Scénario Qualification Sénégal</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap');
+:root{--bg:#080d18;--s:#0f1726;--b:#1a2840;--a:#f5c518;--bl:#3b82f6;--t:#dde4f0;--m:#5a6b88;--g:#22c55e;--r:#ef4444;--o:#f97316;--sn:#00853F;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--t);font-family:'Inter',sans-serif;font-size:14px;}
+header{background:linear-gradient(160deg,#080d18,#0c1a30 50%,#080d18);border-bottom:2px solid var(--a);padding:22px 16px 14px;text-align:center;position:relative;overflow:hidden;}
+header::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% -20%,rgba(245,197,24,.1),transparent 65%);}
+.ht{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--a);margin-bottom:5px;}
+header h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(22px,5.5vw,48px);letter-spacing:2px;color:#fff;line-height:1;}
+header h1 span{color:var(--a);}
+.hs{margin-top:5px;color:var(--m);font-size:12px;}
+.main{max-width:1100px;margin:0 auto;padding:14px 12px 60px;}
+
+/* TABS PRINCIPAUX */
+.tabs-main{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:16px;justify-content:center;}
+.tab-main{background:var(--s);border:1px solid var(--b);border-radius:6px;padding:7px 14px;font-size:12px;font-weight:600;cursor:pointer;transition:all .15s;color:var(--m);}
+.tab-main:hover{border-color:var(--bl);color:var(--t);}
+.tab-main.active{background:var(--a);color:#000;border-color:var(--a);}
+.tab-main.tsn.active{background:var(--sn);color:#fff;border-color:var(--sn);}
+.gpage{display:none;}.gpage.active{display:block;}
+
+/* ONGLETS CAS DE FIGURE */
+.cas-tabs{display:flex;gap:8px;margin-bottom:14px;justify-content:center;}
+.cas-tab{flex:1;max-width:200px;padding:10px 8px;border-radius:8px;border:2px solid var(--b);background:var(--s);cursor:pointer;text-align:center;transition:all .2s;font-weight:700;font-size:13px;color:var(--m);}
+.cas-tab.c1{border-color:#4a3a10;}.cas-tab.c1.active{background:rgba(180,120,0,.2);border-color:#f5c518;color:#f5c518;}
+.cas-tab.c2{border-color:#1a3a10;}.cas-tab.c2.active{background:rgba(0,133,63,.2);border-color:#22c55e;color:#22c55e;}
+.cas-tab.c3{border-color:#10203a;}.cas-tab.c3.active{background:rgba(59,130,246,.2);border-color:#3b82f6;color:#3b82f6;}
+.cas-tab .sub{font-size:10px;font-weight:400;margin-top:2px;opacity:.7;}
+.cas-panel{display:none;}.cas-panel.active{display:block;}
+
+/* LÉGENDE */
+.legend{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:14px;font-size:11px;color:var(--m);padding:8px 12px;background:var(--s);border-radius:8px;border:1px solid var(--b);}
+.legend span{display:flex;align-items:center;gap:5px;}
+.dot{width:8px;height:8px;border-radius:2px;display:inline-block;}
+.dot-r{background:#2a5a40;}.dot-f{background:rgba(245,197,24,.4);}.dot-s{background:rgba(0,133,63,.5);}
+
+/* GRID */
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+@media(max-width:700px){.grid,.grid3{grid-template-columns:1fr;}}
+
+/* CARD */
+.card{background:var(--s);border:1px solid var(--b);border-radius:10px;overflow:hidden;}
+.card.highlight{border-color:var(--sn);}
+.ch{background:linear-gradient(90deg,#0c1a30,#0f1726);border-bottom:1px solid var(--b);padding:8px 12px;display:flex;align-items:center;gap:8px;}
+.gb{font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--a);line-height:1;min-width:22px;}
+.ct{font-weight:700;font-size:12px;color:var(--t);}
+.ms{padding:8px 12px;border-bottom:1px solid var(--b);}
+.sl{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:5px;}
+.sl.r{color:#3a7a55;}.sl.f{color:#7a6a15;}.sl.sn{color:#00a855;}
+.mx{display:flex;align-items:center;justify-content:space-between;padding:3px 0;font-size:12px;}
+.mx+.mx{border-top:1px solid rgba(255,255,255,.04);}
+.tn{flex:1;font-weight:500;}.tn.r{text-align:right;}
+.sc{background:#0a1320;border:1px solid #1a2840;border-radius:4px;padding:2px 7px;font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:2px;color:#fff;margin:0 5px;white-space:nowrap;min-width:44px;text-align:center;}
+.rv .sc{border-color:#2a5a40;color:#aaffcc;}
+.fi .sc{border-color:#7a6a15;color:#f5c518;}
+.fsn .sc{border-color:var(--sn);color:#7effbb;}
+.fl{font-size:15px;margin:0 1px;}
+.ts{padding:8px 12px;}
+table{width:100%;border-collapse:collapse;}
+th{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--m);padding:2px 4px;text-align:center;}
+th:first-child{text-align:left;}
+td{padding:4px 4px;text-align:center;font-size:11.5px;}
+td:first-child{text-align:left;}
+tr.q1,tr.q2{background:rgba(34,197,94,.06);}
+tr.q3{background:rgba(59,130,246,.06);}
+tr.snr{background:rgba(0,133,63,.15)!important;}
+tr.out{opacity:.6;}
+.pt{font-weight:700;color:#fff;}
+.qd{width:6px;height:6px;border-radius:50%;display:inline-block;margin-right:3px;vertical-align:middle;}
+.dg{background:var(--g);}.db{background:var(--bl);}
+.badge{display:inline-block;font-size:9px;font-weight:700;letter-spacing:.5px;padding:1px 5px;border-radius:3px;text-transform:uppercase;}
+.bg{background:rgba(34,197,94,.15);color:var(--g);border:1px solid rgba(34,197,94,.3);}
+.bb{background:rgba(59,130,246,.15);color:var(--bl);border:1px solid rgba(59,130,246,.3);}
+.bo{background:rgba(249,115,22,.15);color:var(--o);border:1px solid rgba(249,115,22,.3);}
+.bsn{background:rgba(0,133,63,.25);color:#7effbb;border:1px solid var(--sn);}
+.br{background:rgba(239,68,68,.15);color:var(--r);border:1px solid rgba(239,68,68,.3);}
+.wn{font-size:10.5px;padding:4px 12px;border-top:1px solid var(--b);}
+.wn.ok{color:#7effbb;}.wn.ko{color:var(--o);}.wn.neutral{color:var(--m);}
+
+/* CONDITIONS FAVORABLES */
+.cond-box{background:var(--s);border:1px solid var(--b);border-radius:10px;padding:14px 16px;margin-bottom:16px;}
+.cond-title{font-family:'Bebas Neue',sans-serif;font-size:18px;color:var(--a);letter-spacing:1px;margin-bottom:10px;}
+.cond-item{display:flex;align-items:flex-start;gap:10px;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.04);font-size:12px;line-height:1.5;}
+.cond-item:last-child{border-bottom:none;}
+.cond-ico{font-size:16px;min-width:20px;margin-top:1px;}
+.cond-txt strong{color:var(--t);}
+.cond-txt{color:var(--m);}
+.cond-why{font-size:11px;color:var(--bl);margin-top:2px;}
+
+/* TABLEAU CLASSEMENT 3ES */
+.t3-wrap{overflow-x:auto;margin-top:16px;}
+.t3{width:100%;border-collapse:collapse;min-width:500px;}
+.t3 th{background:#0c1a30;padding:6px 10px;font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--m);text-align:center;}
+.t3 th:nth-child(2){text-align:left;}
+.t3 td{padding:5px 10px;border-bottom:1px solid var(--b);text-align:center;font-size:12px;}
+.t3 td:nth-child(2){text-align:left;font-weight:600;}
+.t3 tr.snr td{background:rgba(0,133,63,.12);}
+.t3 tr.qa td{background:rgba(34,197,94,.04);}
+.t3 tr.q3r td{background:rgba(59,130,246,.05);}
+.t3-sec{background:#0c1a30;color:var(--a);font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:5px 10px;}
+.rv-tag{font-size:9px;color:#3a7a55;font-weight:600;margin-left:4px;}
+
+/* VERDICT */
+.verdict{border-radius:10px;padding:14px 18px;margin-top:16px;border:2px solid;}
+.verdict.win{background:rgba(0,133,63,.1);border-color:var(--sn);}
+.verdict.maybe{background:rgba(249,115,22,.07);border-color:var(--o);}
+.verdict.lose{background:rgba(239,68,68,.07);border-color:var(--r);}
+.vt{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:1px;margin-bottom:6px;}
+.verdict.win .vt{color:#7effbb;}
+.verdict.maybe .vt{color:#fdba74;}
+.verdict.lose .vt{color:#fca5a5;}
+.vp{font-size:12.5px;line-height:1.8;}
+.verdict.win .vp{color:#b5ffd8;}
+.verdict.maybe .vp{color:#fed7aa;}
+.verdict.lose .vp{color:#fecaca;}
+
+/* SEN MATCH DISPLAY */
+.sen-score{display:flex;align-items:center;justify-content:center;gap:16px;padding:12px;background:#0c1a30;border-radius:8px;margin-bottom:12px;border:1px solid var(--sn);}
+.sen-team{text-align:center;font-size:13px;font-weight:700;}
+.sen-flag{font-size:28px;}
+.sen-sc{font-family:'Bebas Neue',sans-serif;font-size:36px;color:#7effbb;letter-spacing:4px;}
+</style>
+</head>
+<body>
+<header>
+  <div class="ht">⚽ Coupe du Monde 2026 — Scénario Qualification Sénégal</div>
+  <h1>TOUS LES <span>CAS DE FIGURE</span> POUR LE SÉNÉGAL</h1>
+  <p class="hs">Vrais scores J1·J2·J3 partiels · Matchs fictifs restants · 3 scénarios : 1-0 · 2-0 · 3-0 vs Irak</p>
+</header>
+
+<div class="main">
+
+  <div class="legend">
+    <span><span class="dot dot-r"></span>Score réel</span>
+    <span><span class="dot dot-f"></span>Score fictif favorable Sénégal</span>
+    <span><span class="dot dot-s"></span>Score Sénégal (variable selon cas)</span>
+  </div>
+
+  <div class="tabs-main">
+    <button class="tab-main active" onclick="showMain('cond',this)">🎯 Conditions favorables</button>
+    <button class="tab-main tsn" onclick="showMain('cas',this)">🇸🇳 3 cas de figure</button>
+    <button class="tab-main" onclick="showMain('grp',this)">📋 Tous les groupes J3</button>
+  </div>
+
+  <!-- ===== PAGE CONDITIONS ===== -->
+  <div class="gpage active" id="page-cond">
+    <div class="cond-box">
+      <div class="cond-title">🔴 Scores J3 RÉELS déjà connus</div>
+      <div class="cond-item"><span class="cond-ico">🇲🇽</span><div class="cond-txt"><strong>Mexique 3-0 Tchéquie</strong> · Gr. A — Mexique qualifié 1er (9 pts). <span class="cond-why">3e Groupe A = Corée 3 pts / Afr. Sud 4 pts → neutre pour Sénégal</span></div></div>
+      <div class="cond-item"><span class="cond-ico">🇿🇦</span><div class="cond-txt"><strong>Afrique du Sud 1-0 Corée</strong> · Gr. A — Surprise ! Afr. du Sud 2e (4 pts). Corée 3e (3 pts, diff -1). <span class="cond-why">Corée 3 pts -1 diff → CONCURRENCE directe avec Sénégal (-2 ou moins)</span></div></div>
+      <div class="cond-item"><span class="cond-ico">🇨🇭</span><div class="cond-txt"><strong>Suisse 2-1 Canada</strong> · Gr. B — Suisse 1er (7 pts). Canada 2e (4 pts). <span class="cond-why">3e Bosnie déjà fixé (4 pts, diff -1) → au-dessus du Sénégal quoi qu'il arrive</span></div></div>
+      <div class="cond-item"><span class="cond-ico">🇧🇦</span><div class="cond-txt"><strong>Bosnie 3-1 Qatar</strong> · Gr. B — Bosnie 3e (4 pts, diff -1, 5 BP). <span class="cond-why">Bosnie qualifiée comme meilleur 3e quoi qu'il arrive. Le Sénégal joue les places 2-8.</span></div></div>
+      <div class="cond-item"><span class="cond-ico">🇧🇷</span><div class="cond-txt"><strong>Brésil 3-0 Écosse</strong> · Gr. C — Brésil 1er (7 pts). Écosse éliminée (3 pts, diff -3). <span class="cond-why">Écosse 3e : 3 pts, diff -3 → SOUS le Sénégal même avec 1-0 ✅ Bonne nouvelle !</span></div></div>
+      <div class="cond-item"><span class="cond-ico">🇲🇦</span><div class="cond-txt"><strong>Maroc 4-2 Haïti</strong> · Gr. C — Maroc 1er (7 pts). Écosse définitivement éliminée. <span class="cond-why">Confirme Écosse 3e avec diff -3 et seulement 1 BP → favorable Sénégal ✅</span></div></div>
+    </div>
+
+    <div class="cond-box">
+      <div class="cond-title">🟡 Matchs restants — Résultats favorables pour le Sénégal</div>
+
+      <div class="cond-item"><span class="cond-ico">🇩🇴</span><div class="cond-txt"><strong>Paraguay vs Australie</strong> · Gr. D — <span style="color:var(--g);">Il faut un VAINQUEUR (pas de nul)</span><br>Si Paraguay gagne : Paraguay 2e, Australie 3e (3 pts, diff -2). Si Australie gagne : Australie 2e, Paraguay 3e (3 pts, diff -3). <span class="cond-why">Dans les deux cas le 3e finit à 3 pts et diff ≤ -2 → ne dépasse pas le Sénégal avec 2-0 ou 3-0. Mais avec 1-0 c'est juste !</span></div></div>
+
+      <div class="cond-item"><span class="cond-ico">🇩🇪</span><div class="cond-txt"><strong>Allemagne vs Équateur</strong> · Gr. E — <span style="color:var(--g);">Victoire Allemagne souhaitée</span><br>Équateur resterait 3e avec 1 pt. <span class="cond-why">Équateur 3e : 1 pt → éliminé automatiquement ✅</span></div></div>
+
+      <div class="cond-item"><span class="cond-ico">🇨🇮</span><div class="cond-txt"><strong>Curaçao vs Côte d'Ivoire</strong> · Gr. E — <span style="color:var(--g);">Victoire Côte d'Ivoire souhaitée</span><br>Aucun impact sur les 3es (Équateur restera 3e). <span class="cond-why">Neutre pour Sénégal mais logique sportive.</span></div></div>
+
+      <div class="cond-item"><span class="cond-ico">🇯🇵</span><div class="cond-txt"><strong>Japon vs Suède</strong> · Gr. F — <span style="color:var(--g);">Victoire Japon souhaitée</span><br>Suède 3e resterait à 3 pts et diff -3 (perd 0-1 fictivement). <span class="cond-why">Suède 3e : 3 pts, diff -3 → SOUS le Sénégal ✅ Un nul laisserait Suède à 4 pts !</span></div></div>
+
+      <div class="cond-item"><span class="cond-ico">🇳🇱</span><div class="cond-txt"><strong>Tunisie vs Pays-Bas</strong> · Gr. F — <span style="color:var(--g);">Victoire Pays-Bas (quasi certaine)</span><br>Tunisie éliminée (0 pt). <span class="cond-why">Neutre, Tunisie ne peut pas passer 3e ✅</span></div></div>
+
+      <div class="cond-item"><span class="cond-ico">🇪🇬</span><div class="cond-txt"><strong>Égypte vs Iran</strong> · Gr. G — <span style="color:var(--g);">Victoire Égypte souhaitée</span><br>Iran resterait 3e avec 2 pts (0V 2N 1D). <span class="cond-why">Iran 3e : 2 pts → SOUS le Sénégal ✅ Si nul : Iran 3 pts, diff 0 → DEVANT Sénégal avec 1-0 ou 2-0 !</span></div></div>
+
+      <div class="cond-item"><span class="cond-ico">🇳🇿</span><div class="cond-txt"><strong>Nouvelle-Zélande vs Belgique</strong> · Gr. G — <span style="color:var(--g);">Victoire Belgique (neutre pour 3e)</span><br>Belgique 2e. <span class="cond-why">Neutre si Égypte gagne Iran.</span></div></div>
+
+      <div class="cond-item"><span class="cond-ico">🇪🇸</span><div class="cond-txt"><strong>Uruguay vs Espagne</strong> · Gr. H — <span style="color:var(--g);">Victoire Espagne souhaitée</span><br>Uruguay 3e resterait à 2 pts. <span class="cond-why">Uruguay 3e : 2 pts → éliminé ✅ Un nul donnerait 3 pts à Uruguay, potentiel concurrent !</span></div></div>
+
+      <div class="cond-item"><span class="cond-ico">🇸🇦</span><div class="cond-txt"><strong>Cap-Vert vs Arabie Saoudite</strong> · Gr. H — <span style="color:var(--m);">Peu importe (les deux à 2-3 pts max)</span><br><span class="cond-why">Ni Cap-Vert ni Arabie Saoudite ne seront 3e de groupe H → neutre</span></div></div>
+
+      <div class="cond-item"><span class="cond-ico">🇦🇷</span><div class="cond-txt"><strong>Argentine vs Jordanie</strong> · Gr. J — <span style="color:var(--g);">Peu importe (Argentine gagne)</span><br>Algérie reste 3e (3 pts, diff -1). <span class="cond-why">Algérie 3e : 3 pts, diff -1 → DEVANT Sénégal avec 1-0 ou 2-0 ! Voir cas de figure.</span></div></div>
+
+      <div class="cond-item"><span class="cond-ico">🇦🇹</span><div class="cond-txt"><strong>Algérie vs Autriche</strong> · Gr. J — <span style="color:var(--g);">Victoire Autriche souhaitée</span><br>Algérie 3e tomberait à 3 pts, diff -1 → -4 selon score. <span class="cond-why">Si Algérie perd 0-2 : diff -3 → SOUS Sénégal ✅ Si Algérie perd 1-2 : diff -2 → égalité ! Départage BP.</span></div></div>
+
+      <div class="cond-item"><span class="cond-ico">🇨🇴</span><div class="cond-txt"><strong>Colombie vs Portugal</strong> · Gr. K — <span style="color:var(--m);">Congo DR restera 3e (1 pt)</span><br><span class="cond-why">Congo DR 3e : 1 pt → éliminé automatiquement ✅ Peu importe le résultat.</span></div></div>
+
+      <div class="cond-item"><span class="cond-ico">🏴󠁧󠁢󠁥󠁮󠁧󠁿</span><div class="cond-txt"><strong>Angleterre vs Panama</strong> · Gr. L — <span style="color:var(--g);">Victoire Angleterre (probable)</span><br>Croatie restera 3e (3 pts). <span class="cond-why">Croatie 3e : 3 pts, diff -1 → DEVANT Sénégal avec 1-0 ou 2-0 !</span></div></div>
+
+      <div class="cond-item"><span class="cond-ico">🇬🇭</span><div class="cond-txt"><strong>Ghana vs Croatie</strong> · Gr. L — <span style="color:var(--g);">Victoire Ghana souhaitée</span><br>Ghana 1er (7 pts), Angleterre 2e. Croatie 3e tomberait à 3 pts, diff -3 fictivement. <span class="cond-why">Si Croatie perd : diff -3 → SOUS Sénégal ✅ Si Croatie gagne, elle reste 2e et Ghana 3e (4 pts) → Problème !</span></div></div>
+
+      <div class="cond-item"><span class="cond-ico">🇳🇴</span><div class="cond-txt"><strong>Norvège vs France</strong> · Gr. I — <span style="color:var(--m);">Peu importe (Sénégal 3e quoi qu'il arrive)</span><br><span class="cond-why">Ce match ne change pas la position du Sénégal dans le groupe I.</span></div></div>
+    </div>
+  </div>
+
+  <!-- ===== PAGE CAS DE FIGURE ===== -->
+  <div class="gpage" id="page-cas">
+    <div class="cas-tabs">
+      <div class="cas-tab c1 active" onclick="showCas('c1',this)">
+        ⚽ 1-0<div class="sub">Victoire courte</div>
+      </div>
+      <div class="cas-tab c2" onclick="showCas('c2',this)">
+        ⚽⚽ 2-0<div class="sub">Victoire nette</div>
+      </div>
+      <div class="cas-tab c3" onclick="showCas('c3',this)">
+        ⚽⚽⚽ 3-0<div class="sub">Large victoire</div>
+      </div>
+    </div>
+
+    <!-- CAS 1-0 -->
+    <div class="cas-panel active" id="cas-c1">
+      <div class="sen-score">
+        <div class="sen-team"><div class="sen-flag">🇸🇳</div><div>Sénégal</div></div>
+        <div class="sen-sc">1 – 0</div>
+        <div class="sen-team"><div class="sen-flag">🇮🇶</div><div>Irak</div></div>
+      </div>
+      <div style="background:rgba(245,197,24,.06);border:1px solid rgba(245,197,24,.2);border-radius:8px;padding:12px 16px;margin-bottom:14px;font-size:12.5px;color:#f5c518;line-height:1.8;">
+        <strong>Sénégal avec 1-0 :</strong> 3 pts · BP 4 · BC 7 · Diff <strong>-3</strong><br>
+        C'est le scénario le plus difficile. Sénégal à -3 de diff, même niveau que l'Écosse (3 pts, -3). Le moindre 3e à 3 pts avec diff ≥ -3 et plus de buts marqués passe devant.<br>
+        <strong>Conditions IMPÉRATIVES :</strong> Suède perd, Algérie perd lourdement (0-2 ou plus), Paraguay/Australie : un vainqueur ET peu de buts, Croatie perd, Égypte bat Iran, Uruguay perd.
+      </div>
+      <div class="t3-wrap">
+        <table class="t3">
+          <thead><tr><th>Gr.</th><th>3e équipe</th><th>Pts</th><th>Diff</th><th>BP</th><th>Statut (si résultats favorables)</th></tr></thead>
+          <tbody>
+            <tr><td colspan="6" class="t3-sec">Résultats RÉELS — déjà fixés</td></tr>
+            <tr class="qa"><td>B</td><td>🇧🇦 Bosnie <span class="rv-tag">RÉEL</span></td><td>4</td><td>-1</td><td>5</td><td><span class="badge bb">QUALIFIÉE ✓</span></td></tr>
+            <tr class="qa"><td>C</td><td>🏴󠁧󠁢󠁳󠁣󠁴󠁿 Écosse <span class="rv-tag">RÉEL</span></td><td>3</td><td>-3</td><td>1</td><td><span class="badge bg">SOUS sénégal ✓</span></td></tr>
+
+            <tr><td colspan="6" class="t3-sec">Résultats FICTIFS favorables</td></tr>
+            <tr class="qa"><td>F</td><td>🇸🇪 Suède (Japon gagne)</td><td>3</td><td>-3</td><td>6</td><td><span class="badge br">ÉLIMINÉE — mais + BP qu'Écosse ⚠️</span></td></tr>
+            <tr class="qa"><td>A</td><td>🇰🇷 Corée <span class="rv-tag">RÉEL</span></td><td>3</td><td>-1</td><td>4</td><td><span class="badge br">DEVANT SÉNÉGAL — 3pts, diff -1 ❌</span></td></tr>
+            <tr class="qa"><td>J</td><td>🇩🇿 Algérie (perd 0-3)</td><td>3</td><td>-4</td><td>2</td><td><span class="badge bg">SOUS sénégal ✓</span></td></tr>
+            <tr class="qa"><td>D</td><td>🇦🇺 Australie (gagne vs PAR)</td><td>6</td><td>—</td><td>—</td><td><span class="badge bg">2e → SORT du rang des 3es ✓</span></td></tr>
+            <tr class="qa"><td>D</td><td>🇵🇾 Paraguay (si perd)</td><td>3</td><td>-3</td><td>2</td><td><span class="badge bg">SOUS sénégal ✓</span></td></tr>
+            <tr class="qa"><td>G</td><td>🇮🇷 Iran (Égypte gagne)</td><td>2</td><td>-1</td><td>4</td><td><span class="badge bg">ÉLIMINÉ — 2 pts ✓</span></td></tr>
+            <tr class="qa"><td>H</td><td>🇺🇾 Uruguay (Espagne gagne)</td><td>2</td><td>-3</td><td>3</td><td><span class="badge bg">ÉLIMINÉ — 2 pts ✓</span></td></tr>
+            <tr class="qa"><td>K</td><td>🇨🇩 Congo DR</td><td>1</td><td>—</td><td>—</td><td><span class="badge bg">ÉLIMINÉ — 1 pt ✓</span></td></tr>
+            <tr class="qa"><td>L</td><td>🇭🇷 Croatie (si Ghana gagne)</td><td>3</td><td>-3</td><td>3</td><td><span class="badge br">DEVANT sénégal — même pts/diff, + BP ❌</span></td></tr>
+            <tr class="qa"><td>E</td><td>🇪🇨 Équateur (All. gagne)</td><td>1</td><td>—</td><td>—</td><td><span class="badge bg">ÉLIMINÉ — 1 pt ✓</span></td></tr>
+
+            <tr><td colspan="6" class="t3-sec">🇸🇳 SÉNÉGAL — 1-0 vs Irak</td></tr>
+            <tr class="snr"><td>I</td><td>🇸🇳 SÉNÉGAL</td><td>3</td><td>-3</td><td>4</td><td><span class="badge bsn">QUALIFIÉ 8e ✓ (+ BP que Écosse/Suède)</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="verdict maybe">
+        <div class="vt">⚠️ 1-0 : QUALIFICATION POSSIBLE MAIS TRÈS RISQUÉE</div>
+        <div class="vp">
+          Avec 1-0, le Sénégal finit à <strong>3 pts, diff -3, 4 BP</strong>. Il peut se qualifier seulement si :<br>
+          ❌ <strong>Corée du Sud passe devant</strong> (3 pts, diff -1) — le Sénégal serait 9e. La Corée est un problème majeur.<br>
+          ❌ <strong>Croatie reste à 3 pts, diff -3 mais 3 BP</strong> — SOUS Sénégal (4 BP), ça passe.<br>
+          ✅ Si Australie bat Paraguay → Paraguay à -3 diff, 2 BP → sous Sénégal<br>
+          ✅ Algérie doit perdre 0-3 ou pire → diff ≤ -4<br>
+          ✅ Égypte doit battre Iran, Espagne doit battre Uruguay<br>
+          <br>
+          <strong>Le problème principal avec 1-0 : la Corée du Sud (3 pts, diff -1) passe automatiquement devant le Sénégal. Il faudrait un miracle supplémentaire.</strong>
+        </div>
+      </div>
+    </div>
+
+    <!-- CAS 2-0 -->
+    <div class="cas-panel" id="cas-c2">
+      <div class="sen-score">
+        <div class="sen-team"><div class="sen-flag">🇸🇳</div><div>Sénégal</div></div>
+        <div class="sen-sc">2 – 0</div>
+        <div class="sen-team"><div class="sen-flag">🇮🇶</div><div>Irak</div></div>
+      </div>
+      <div style="background:rgba(34,197,94,.06);border:1px solid rgba(34,197,94,.2);border-radius:8px;padding:12px 16px;margin-bottom:14px;font-size:12.5px;color:#86efac;line-height:1.8;">
+        <strong>Sénégal avec 2-0 :</strong> 3 pts · BP 4 · BC 7 · Diff <strong>-2</strong><br>
+        Scénario réaliste. Sénégal à -2 de diff. Passe devant Écosse (-3), Suède si elle perd, Algérie si elle perd lourdement.<br>
+        <strong>Principaux obstacles :</strong> Corée (3 pts, -1), Algérie (si perd 1-2 → -2 mais 2 BP vs 4 BP Sénégal → Sénégal devant), Croatie (si 3 pts -1 → problème).
+      </div>
+      <div class="t3-wrap">
+        <table class="t3">
+          <thead><tr><th>Gr.</th><th>3e équipe</th><th>Pts</th><th>Diff</th><th>BP</th><th>Statut (si résultats favorables)</th></tr></thead>
+          <tbody>
+            <tr><td colspan="6" class="t3-sec">Résultats RÉELS — déjà fixés</td></tr>
+            <tr class="qa"><td>B</td><td>🇧🇦 Bosnie <span class="rv-tag">RÉEL</span></td><td>4</td><td>-1</td><td>5</td><td><span class="badge bb">QUALIFIÉE ✓</span></td></tr>
+            <tr class="qa"><td>C</td><td>🏴󠁧󠁢󠁳󠁣󠁴󠁿 Écosse <span class="rv-tag">RÉEL</span></td><td>3</td><td>-3</td><td>1</td><td><span class="badge bg">SOUS sénégal (-3 vs -2) ✓</span></td></tr>
+            <tr class="qa"><td>A</td><td>🇰🇷 Corée <span class="rv-tag">RÉEL</span></td><td>3</td><td>-1</td><td>4</td><td><span class="badge br">DEVANT sénégal — diff -1 vs -2 ❌</span></td></tr>
+
+            <tr><td colspan="6" class="t3-sec">Résultats FICTIFS favorables</td></tr>
+            <tr class="qa"><td>F</td><td>🇸🇪 Suède (Japon gagne 2-0)</td><td>3</td><td>-4</td><td>6</td><td><span class="badge bg">SOUS sénégal (-4 vs -2) ✓</span></td></tr>
+            <tr class="qa"><td>J</td><td>🇩🇿 Algérie (perd 0-2 vs AUT)</td><td>3</td><td>-3</td><td>2</td><td><span class="badge bg">SOUS sénégal (-3 vs -2) ✓</span></td></tr>
+            <tr class="qa"><td>D</td><td>🇦🇺 Australie (gagne vs PAR)</td><td>6</td><td>—</td><td>—</td><td><span class="badge bg">Devient 2e → sort des 3es ✓</span></td></tr>
+            <tr class="qa"><td>D</td><td>🇵🇾 Paraguay (perd vs AUS)</td><td>3</td><td>-3</td><td>2</td><td><span class="badge bg">SOUS sénégal ✓</span></td></tr>
+            <tr class="qa"><td>G</td><td>🇮🇷 Iran (Égypte gagne 2-0)</td><td>2</td><td>-1</td><td>4</td><td><span class="badge bg">ÉLIMINÉ — 2 pts ✓</span></td></tr>
+            <tr class="qa"><td>H</td><td>🇺🇾 Uruguay (Espagne gagne)</td><td>2</td><td>-2</td><td>3</td><td><span class="badge bg">ÉLIMINÉ — 2 pts ✓</span></td></tr>
+            <tr class="qa"><td>L</td><td>🇭🇷 Croatie (Ghana gagne 2-0)</td><td>3</td><td>-4</td><td>3</td><td><span class="badge bg">SOUS sénégal (-4 vs -2) ✓</span></td></tr>
+            <tr class="qa"><td>K</td><td>🇨🇩 Congo DR</td><td>1</td><td>—</td><td>—</td><td><span class="badge bg">ÉLIMINÉ ✓</span></td></tr>
+            <tr class="qa"><td>E</td><td>🇪🇨 Équateur (All. gagne)</td><td>1</td><td>—</td><td>—</td><td><span class="badge bg">ÉLIMINÉ ✓</span></td></tr>
+
+            <tr><td colspan="6" class="t3-sec">🇸🇳 SÉNÉGAL — 2-0 vs Irak (8e meilleur 3e)</td></tr>
+            <tr class="snr"><td>I</td><td>🇸🇳 SÉNÉGAL</td><td>3</td><td>-2</td><td>4</td><td><span class="badge bsn">QUALIFIÉ 8e ✓ (mais Corée 7e, Sénégal 8e limite)</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="verdict win">
+        <div class="vt">✅ 2-0 : QUALIFICATION POSSIBLE SI RÉSULTATS FAVORABLES</div>
+        <div class="vp">
+          Avec 2-0, le Sénégal est à <strong>3 pts, diff -2</strong>. Il se qualifie comme 8e meilleur 3e si :<br>
+          ✅ <strong>Japon bat Suède</strong> → Suède à -4 diff (sous Sénégal)<br>
+          ✅ <strong>Australie bat Paraguay</strong> → Paraguay à -3 diff (sous Sénégal)<br>
+          ✅ <strong>Égypte bat Iran</strong> → Iran éliminé (2 pts)<br>
+          ✅ <strong>Espagne bat Uruguay</strong> → Uruguay éliminé (2 pts)<br>
+          ✅ <strong>Autriche bat Algérie 0-2</strong> → Algérie à -3 diff (sous Sénégal)<br>
+          ✅ <strong>Ghana bat Croatie 2-0</strong> → Croatie à -4 diff (sous Sénégal)<br>
+          ❌ <strong>La Corée du Sud (3 pts, diff -1) reste devant</strong> — inévitable, mais c'est seulement 7e place occupée. Le Sénégal reste 8e.<br>
+          <br>
+          <strong>Si tous ces résultats tombent : Sénégal qualifié en 8e place !</strong>
+        </div>
+      </div>
+    </div>
+
+    <!-- CAS 3-0 -->
+    <div class="cas-panel" id="cas-c3">
+      <div class="sen-score">
+        <div class="sen-team"><div class="sen-flag">🇸🇳</div><div>Sénégal</div></div>
+        <div class="sen-sc">3 – 0</div>
+        <div class="sen-team"><div class="sen-flag">🇮🇶</div><div>Irak</div></div>
+      </div>
+      <div style="background:rgba(59,130,246,.06);border:1px solid rgba(59,130,246,.2);border-radius:8px;padding:12px 16px;margin-bottom:14px;font-size:12.5px;color:#93c5fd;line-height:1.8;">
+        <strong>Sénégal avec 3-0 :</strong> 3 pts · BP 5 · BC 7 · Diff <strong>-1</strong><br>
+        Meilleur scénario. Sénégal à -1 de diff. Passe devant Écosse (-3), Suède, Algérie, Paraguay, Croatie dans la majorité des cas. Il peut même devancer la Corée (diff -1) grâce aux buts marqués !<br>
+        <strong>Conditions moins strictes</strong> qu'avec 1-0 ou 2-0 — plus de marge.
+      </div>
+      <div class="t3-wrap">
+        <table class="t3">
+          <thead><tr><th>Gr.</th><th>3e équipe</th><th>Pts</th><th>Diff</th><th>BP</th><th>Statut</th></tr></thead>
+          <tbody>
+            <tr><td colspan="6" class="t3-sec">Résultats RÉELS — déjà fixés</td></tr>
+            <tr class="qa"><td>B</td><td>🇧🇦 Bosnie <span class="rv-tag">RÉEL</span></td><td>4</td><td>-1</td><td>5</td><td><span class="badge bb">QUALIFIÉE ✓</span></td></tr>
+            <tr class="qa"><td>C</td><td>🏴󠁧󠁢󠁳󠁣󠁴󠁿 Écosse <span class="rv-tag">RÉEL</span></td><td>3</td><td>-3</td><td>1</td><td><span class="badge bg">SOUS sénégal ✓</span></td></tr>
+            <tr class="qa"><td>A</td><td>🇰🇷 Corée <span class="rv-tag">RÉEL</span></td><td>3</td><td>-1</td><td>4</td><td><span class="badge br">ÉGALITÉ pts+diff — 4 BP vs 5 BP → <strong>SÉNÉGAL PASSE !</strong> ✅</span></td></tr>
+
+            <tr><td colspan="6" class="t3-sec">Résultats FICTIFS favorables</td></tr>
+            <tr class="qa"><td>F</td><td>🇸🇪 Suède (Japon gagne)</td><td>3</td><td>-4</td><td>6</td><td><span class="badge bg">SOUS sénégal (-4 vs -1) ✓</span></td></tr>
+            <tr class="qa"><td>J</td><td>🇩🇿 Algérie (perd 1-2)</td><td>3</td><td>-2</td><td>2</td><td><span class="badge bg">SOUS sénégal (-2 vs -1) ✓</span></td></tr>
+            <tr class="qa"><td>D</td><td>🇦🇺 Australie ou 🇵🇾 Paraguay</td><td>3-6</td><td>≤-2</td><td>—</td><td><span class="badge bg">SOUS ou hors des 3es ✓</span></td></tr>
+            <tr class="qa"><td>G</td><td>🇮🇷 Iran (Égypte gagne)</td><td>2</td><td>—</td><td>—</td><td><span class="badge bg">ÉLIMINÉ ✓</span></td></tr>
+            <tr class="qa"><td>H</td><td>🇺🇾 Uruguay (Espagne gagne)</td><td>2</td><td>—</td><td>—</td><td><span class="badge bg">ÉLIMINÉ ✓</span></td></tr>
+            <tr class="qa"><td>L</td><td>🇭🇷 Croatie (Ghana gagne)</td><td>3</td><td>-3</td><td>3</td><td><span class="badge bg">SOUS sénégal (-3 vs -1) ✓</span></td></tr>
+            <tr class="qa"><td>K</td><td>🇨🇩 Congo DR</td><td>1</td><td>—</td><td>—</td><td><span class="badge bg">ÉLIMINÉ ✓</span></td></tr>
+            <tr class="qa"><td>E</td><td>🇪🇨 Équateur</td><td>1</td><td>—</td><td>—</td><td><span class="badge bg">ÉLIMINÉ ✓</span></td></tr>
+
+            <tr><td colspan="6" class="t3-sec">🇸🇳 SÉNÉGAL — 3-0 vs Irak (7e meilleur 3e)</td></tr>
+            <tr class="snr"><td>I</td><td>🇸🇳 SÉNÉGAL</td><td>3</td><td>-1</td><td>5</td><td><span class="badge bsn">QUALIFIÉ 7e ✓ — passe même devant la Corée !</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="verdict win">
+        <div class="vt">🎉 3-0 : QUALIFICATION BIEN PLUS CONFORTABLE !</div>
+        <div class="vp">
+          Avec 3-0, le Sénégal monte à <strong>3 pts, diff -1, 5 BP</strong>. Scénario bien plus favorable :<br>
+          ✅ <strong>La Corée du Sud</strong> (3 pts, diff -1, 4 BP) → Sénégal passe devant grâce aux BP (5 vs 4) !<br>
+          ✅ <strong>Bosnie</strong> (4 pts) reste qualifiée au-dessus — c'est inévitable<br>
+          ✅ <strong>Algérie</strong> : même si elle perd 1-2 → diff -2 → sous Sénégal (-1)<br>
+          ✅ <strong>Suède</strong> : si Japon gagne → diff -4 → largement sous Sénégal<br>
+          ✅ <strong>Croatie</strong> : si Ghana gagne → diff -3 → sous Sénégal<br>
+          ✅ <strong>Paraguay/Australie</strong> : le 3e aura au mieux -2 diff → sous Sénégal<br>
+          ✅ Égypte bat Iran, Espagne bat Uruguay → ces équipes hors course<br>
+          <br>
+          <strong>Un 3-0 offre au Sénégal une qualification presque assurée si les 3-4 autres résultats clés tombent bien. La marge est réelle !</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== PAGE TOUS LES GROUPES ===== -->
+  <div class="gpage" id="page-grp">
+    <div style="background:rgba(245,197,24,.06);border:1px solid rgba(245,197,24,.2);border-radius:8px;padding:11px 14px;margin-bottom:14px;font-size:12px;color:#f5c518;line-height:1.7;">
+      Scores J3 fictifs choisis pour maximiser les chances du Sénégal (hypothèse 2-0 vs Irak). Les scores réels déjà joués sont indiqués.
+    </div>
+    <div class="grid">
+
+      <!-- GROUPE A -->
+      <div class="card">
+        <div class="ch"><div class="gb">A</div><div><div class="ct">Mexique · Afr. du Sud · Corée · Tchéquie</div></div></div>
+        <div class="ms">
+          <div class="sl r">J3 — 25 juin ✅ RÉELS</div>
+          <div class="mx rv"><span class="fl">🇨🇿</span><span class="tn">Tchéquie</span><span class="sc">0–3</span><span class="tn r">Mexique</span><span class="fl">🇲🇽</span></div>
+          <div class="mx rv"><span class="fl">🇿🇦</span><span class="tn">Afr. du Sud</span><span class="sc">1–0</span><span class="tn r">Corée</span><span class="fl">🇰🇷</span></div>
+        </div>
+        <div class="ts"><table>
+          <thead><tr><th>#</th><th>Équipe</th><th>J</th><th>V</th><th>N</th><th>D</th><th>BP</th><th>BC</th><th>Diff</th><th>Pts</th></tr></thead>
+          <tbody>
+            <tr class="q1"><td><span class="qd dg"></span>1</td><td>🇲🇽 Mexique</td><td>3</td><td>3</td><td>0</td><td>0</td><td>6</td><td>1</td><td>+5</td><td class="pt">9</td></tr>
+            <tr class="q2"><td><span class="qd dg"></span>2</td><td>🇿🇦 Afr. du Sud</td><td>3</td><td>1</td><td>1</td><td>1</td><td>2</td><td>3</td><td>-1</td><td class="pt">4</td></tr>
+            <tr class="q3"><td><span class="qd db"></span>3</td><td>🇰🇷 Corée</td><td>3</td><td>1</td><td>0</td><td>2</td><td>4</td><td>5</td><td><strong>-1</strong></td><td class="pt">3</td></tr>
+            <tr class="out"><td>4</td><td>🇨🇿 Tchéquie</td><td>3</td><td>0</td><td>1</td><td>2</td><td>2</td><td>5</td><td>-3</td><td class="pt">1</td></tr>
+          </tbody>
+        </table></div>
+        <div class="wn ko">⚠️ Corée 3e : 3 pts, diff -1 → passe DEVANT Sénégal avec 1-0 ou 2-0. OK seulement avec 3-0 (5 BP vs 4 BP).</div>
+      </div>
+
+      <!-- GROUPE B -->
+      <div class="card">
+        <div class="ch"><div class="gb">B</div><div><div class="ct">Suisse · Canada · Bosnie · Qatar</div></div></div>
+        <div class="ms">
+          <div class="sl r">J3 — 24 juin ✅ RÉELS</div>
+          <div class="mx rv"><span class="fl">🇨🇭</span><span class="tn">Suisse</span><span class="sc">2–1</span><span class="tn r">Canada</span><span class="fl">🇨🇦</span></div>
+          <div class="mx rv"><span class="fl">🇧🇦</span><span class="tn">Bosnie</span><span class="sc">3–1</span><span class="tn r">Qatar</span><span class="fl">🇶🇦</span></div>
+        </div>
+        <div class="ts"><table>
+          <thead><tr><th>#</th><th>Équipe</th><th>J</th><th>V</th><th>N</th><th>D</th><th>BP</th><th>BC</th><th>Diff</th><th>Pts</th></tr></thead>
+          <tbody>
+            <tr class="q1"><td><span class="qd dg"></span>1</td><td>🇨🇭 Suisse</td><td>3</td><td>2</td><td>1</td><td>0</td><td>7</td><td>3</td><td>+4</td><td class="pt">7</td></tr>
+            <tr class="q2"><td><span class="qd dg"></span>2</td><td>🇨🇦 Canada</td><td>3</td><td>1</td><td>1</td><td>1</td><td>8</td><td>4</td><td>+4</td><td class="pt">4</td></tr>
+            <tr class="q3"><td><span class="qd db"></span>3</td><td>🇧🇦 Bosnie</td><td>3</td><td>1</td><td>1</td><td>1</td><td>5</td><td>6</td><td><strong>-1</strong></td><td class="pt">4</td></tr>
+            <tr class="out"><td>4</td><td>🇶🇦 Qatar</td><td>3</td><td>0</td><td>1</td><td>2</td><td>2</td><td>9</td><td>-7</td><td class="pt">1</td></tr>
+          </tbody>
+        </table></div>
+        <div class="wn ok">✅ Bosnie qualifiée comme meilleur 3e (4 pts) — indépendant du Sénégal.</div>
+      </div>
+
+      <!-- GROUPE C -->
+      <div class="card">
+        <div class="ch"><div class="gb">C</div><div><div class="ct">Brésil · Maroc · Écosse · Haïti</div></div></div>
+        <div class="ms">
+          <div class="sl r">J3 — 24-25 juin ✅ RÉELS</div>
+          <div class="mx rv"><span class="fl">🏴󠁧󠁢󠁳󠁣󠁴󠁿</span><span class="tn">Écosse</span><span class="sc">0–3</span><span class="tn r">Brésil</span><span class="fl">🇧🇷</span></div>
+          <div class="mx rv"><span class="fl">🇲🇦</span><span class="tn">Maroc</span><span class="sc">4–2</span><span class="tn r">Haïti</span><span class="fl">🇭🇹</span></div>
+        </div>
+        <div class="ts"><table>
+          <thead><tr><th>#</th><th>Équipe</th><th>J</th><th>V</th><th>N</th><th>D</th><th>BP</th><th>BC</th><th>Diff</th><th>Pts</th></tr></thead>
+          <tbody>
+            <tr class="q1"><td><span class="qd dg"></span>1</td><td>🇧🇷 Brésil</td><td>3</td><td>2</td><td>1</td><td>0</td><td>7</td><td>2</td><td>+5</td><td class="pt">7</td></tr>
+            <tr class="q2"><td><span class="qd dg"></span>2</td><td>🇲🇦 Maroc</td><td>3</td><td>2</td><td>1</td><td>0</td><td>6</td><td>4</td><td>+2</td><td class="pt">7</td></tr>
+            <tr class="q3"><td><span class="qd db"></span>3</td><td>🏴󠁧󠁢󠁳󠁣󠁴󠁿 Écosse</td><td>3</td><td>1</td><td>0</td><td>2</td><td>1</td><td>6</td><td><strong>-5</strong></td><td class="pt">3</td></tr>
+            <tr class="out"><td>4</td><td>🇭🇹 Haïti</td><td>3</td><td>0</td><td>0</td><td>3</td><td>2</td><td>4</td><td>-2</td><td class="pt">0</td></tr>
+          </tbody>
+        </table></div>
+        <div class="wn ok">✅ Écosse 3e : 3 pts, diff -5 → LARGEMENT sous le Sénégal dans tous les cas !</div>
+      </div>
+
+      <!-- GROUPE D -->
+      <div class="card">
+        <div class="ch"><div class="gb">D</div><div><div class="ct">USA · Australie · Paraguay · Turquie</div></div></div>
+        <div class="ms">
+          <div class="sl f">J3 — 26 juin ⚡ Fictif (favorable Sénégal)</div>
+          <div class="mx fi"><span class="fl">🇹🇷</span><span class="tn">Turquie</span><span class="sc">0–2</span><span class="tn r">USA</span><span class="fl">🇺🇸</span></div>
+          <div class="mx fi"><span class="fl">🇦🇺</span><span class="tn">Australie</span><span class="sc">2–1</span><span class="tn r">Paraguay</span><span class="fl">🇵🇾</span></div>
+        </div>
+        <div class="ts"><table>
+          <thead><tr><th>#</th><th>Équipe</th><th>J</th><th>V</th><th>N</th><th>D</th><th>BP</th><th>BC</th><th>Diff</th><th>Pts</th></tr></thead>
+          <tbody>
+            <tr class="q1"><td><span class="qd dg"></span>1</td><td>🇺🇸 USA</td><td>3</td><td>3</td><td>0</td><td>0</td><td>8</td><td>1</td><td>+7</td><td class="pt">9</td></tr>
+            <tr class="q2"><td><span class="qd dg"></span>2</td><td>🇦🇺 Australie</td><td>3</td><td>2</td><td>0</td><td>1</td><td>4</td><td>3</td><td>+1</td><td class="pt">6</td></tr>
+            <tr class="q3"><td><span class="qd db"></span>3</td><td>🇵🇾 Paraguay</td><td>3</td><td>1</td><td>0</td><td>2</td><td>2</td><td>5</td><td><strong>-3</strong></td><td class="pt">3</td></tr>
+            <tr class="out"><td>4</td><td>🇹🇷 Turquie</td><td>3</td><td>0</td><td>0</td><td>3</td><td>0</td><td>5</td><td>-5</td><td class="pt">0</td></tr>
+          </tbody>
+        </table></div>
+        <div class="wn ok">✅ Australie passe 2e → Paraguay 3e avec 3 pts, diff -3 → SOUS Sénégal (2-0 ou 3-0). Clé : un vainqueur dans ce match !</div>
+      </div>
+
+      <!-- GROUPE E -->
+      <div class="card">
+        <div class="ch"><div class="gb">E</div><div><div class="ct">Allemagne · Côte d'Ivoire · Équateur · Curaçao</div></div></div>
+        <div class="ms">
+          <div class="sl f">J3 — 25 juin ⚡ Fictif</div>
+          <div class="mx fi"><span class="fl">🇪🇨</span><span class="tn">Équateur</span><span class="sc">0–2</span><span class="tn r">Allemagne</span><span class="fl">🇩🇪</span></div>
+          <div class="mx fi"><span class="fl">🇨🇼</span><span class="tn">Curaçao</span><span class="sc">0–2</span><span class="tn r">Côte d'Ivoire</span><span class="fl">🇨🇮</span></div>
+        </div>
+        <div class="ts"><table>
+          <thead><tr><th>#</th><th>Équipe</th><th>J</th><th>V</th><th>N</th><th>D</th><th>BP</th><th>BC</th><th>Diff</th><th>Pts</th></tr></thead>
+          <tbody>
+            <tr class="q1"><td><span class="qd dg"></span>1</td><td>🇩🇪 Allemagne</td><td>3</td><td>3</td><td>0</td><td>0</td><td>11</td><td>2</td><td>+9</td><td class="pt">9</td></tr>
+            <tr class="q2"><td><span class="qd dg"></span>2</td><td>🇨🇮 Côte d'Ivoire</td><td>3</td><td>2</td><td>0</td><td>1</td><td>4</td><td>3</td><td>+1</td><td class="pt">6</td></tr>
+            <tr class="q3"><td><span class="qd db"></span>3</td><td>🇪🇨 Équateur</td><td>3</td><td>0</td><td>1</td><td>2</td><td>0</td><td>5</td><td><strong>-5</strong></td><td class="pt">1</td></tr>
+            <tr class="out"><td>4</td><td>🇨🇼 Curaçao</td><td>3</td><td>0</td><td>1</td><td>2</td><td>1</td><td>7</td><td>-6</td><td class="pt">1</td></tr>
+          </tbody>
+        </table></div>
+        <div class="wn ok">✅ Équateur 3e : 1 pt → éliminé automatiquement. Aucun danger.</div>
+      </div>
+
+      <!-- GROUPE F -->
+      <div class="card">
+        <div class="ch"><div class="gb">F</div><div><div class="ct">Pays-Bas · Japon · Suède · Tunisie</div></div></div>
+        <div class="ms">
+          <div class="sl f">J3 — 25-26 juin ⚡ Fictif (CRUCIAL pour Sénégal)</div>
+          <div class="mx fi"><span class="fl">🇯🇵</span><span class="tn">Japon</span><span class="sc">2–0</span><span class="tn r">Suède</span><span class="fl">🇸🇪</span></div>
+          <div class="mx fi"><span class="fl">🇳🇱</span><span class="tn">Pays-Bas</span><span class="sc">3–0</span><span class="tn r">Tunisie</span><span class="fl">🇹🇳</span></div>
+        </div>
+        <div class="ts"><table>
+          <thead><tr><th>#</th><th>Équipe</th><th>J</th><th>V</th><th>N</th><th>D</th><th>BP</th><th>BC</th><th>Diff</th><th>Pts</th></tr></thead>
+          <tbody>
+            <tr class="q1"><td><span class="qd dg"></span>1</td><td>🇳🇱 Pays-Bas</td><td>3</td><td>2</td><td>1</td><td>0</td><td>10</td><td>2</td><td>+8</td><td class="pt">7</td></tr>
+            <tr class="q2"><td><span class="qd dg"></span>2</td><td>🇯🇵 Japon</td><td>3</td><td>2</td><td>1</td><td>0</td><td>8</td><td>4</td><td>+4</td><td class="pt">7</td></tr>
+            <tr class="q3"><td><span class="qd db"></span>3</td><td>🇸🇪 Suède</td><td>3</td><td>1</td><td>0</td><td>2</td><td>6</td><td>10</td><td><strong>-4</strong></td><td class="pt">3</td></tr>
+            <tr class="out"><td>4</td><td>🇹🇳 Tunisie</td><td>3</td><td>0</td><td>0</td><td>3</td><td>1</td><td>9</td><td>-8</td><td class="pt">0</td></tr>
+          </tbody>
+        </table></div>
+        <div class="wn ok">✅ Suède 3e : 3 pts, diff -4 → SOUS Sénégal dans tous les cas. Victoire Japon IMPÉRATIVE !</div>
+      </div>
+
+      <!-- GROUPE G -->
+      <div class="card">
+        <div class="ch"><div class="gb">G</div><div><div class="ct">Égypte · Belgique · Iran · Nvl-Zélande</div></div></div>
+        <div class="ms">
+          <div class="sl f">J3 — 26 juin ⚡ Fictif (CRUCIAL pour Sénégal)</div>
+          <div class="mx fi"><span class="fl">🇪🇬</span><span class="tn">Égypte</span><span class="sc">2–0</span><span class="tn r">Iran</span><span class="fl">🇮🇷</span></div>
+          <div class="mx fi"><span class="fl">🇳🇿</span><span class="tn">Nvl-Zélande</span><span class="sc">0–2</span><span class="tn r">Belgique</span><span class="fl">🇧🇪</span></div>
+        </div>
+        <div class="ts"><table>
+          <thead><tr><th>#</th><th>Équipe</th><th>J</th><th>V</th><th>N</th><th>D</th><th>BP</th><th>BC</th><th>Diff</th><th>Pts</th></tr></thead>
+          <tbody>
+            <tr class="q1"><td><span class="qd dg"></span>1</td><td>🇪🇬 Égypte</td><td>3</td><td>2</td><td>1</td><td>0</td><td>5</td><td>1</td><td>+4</td><td class="pt">7</td></tr>
+            <tr class="q2"><td><span class="qd dg"></span>2</td><td>🇧🇪 Belgique</td><td>3</td><td>1</td><td>2</td><td>0</td><td>4</td><td>2</td><td>+2</td><td class="pt">5</td></tr>
+            <tr class="q3"><td><span class="qd db"></span>3</td><td>🇮🇷 Iran</td><td>3</td><td>0</td><td>2</td><td>1</td><td>2</td><td>4</td><td><strong>-2</strong></td><td class="pt">2</td></tr>
+            <tr class="out"><td>4</td><td>🇳🇿 Nvl-Zélande</td><td>3</td><td>0</td><td>1</td><td>2</td><td>1</td><td>5</td><td>-4</td><td class="pt">1</td></tr>
+          </tbody>
+        </table></div>
+        <div class="wn ok">✅ Iran 3e : 2 pts → éliminé automatiquement. Victoire Égypte IMPÉRATIVE !</div>
+      </div>
+
+      <!-- GROUPE H -->
+      <div class="card">
+        <div class="ch"><div class="gb">H</div><div><div class="ct">Espagne · Uruguay · Cap-Vert · Arabie S.</div></div></div>
+        <div class="ms">
+          <div class="sl f">J3 — 27 juin ⚡ Fictif (favorable Sénégal)</div>
+          <div class="mx fi"><span class="fl">🇺🇾</span><span class="tn">Uruguay</span><span class="sc">0–2</span><span class="tn r">Espagne</span><span class="fl">🇪🇸</span></div>
+          <div class="mx fi"><span class="fl">🇨🇻</span><span class="tn">Cap-Vert</span><span class="sc">1–1</span><span class="tn r">Arabie S.</span><span class="fl">🇸🇦</span></div>
+        </div>
+        <div class="ts"><table>
+          <thead><tr><th>#</th><th>Équipe</th><th>J</th><th>V</th><th>N</th><th>D</th><th>BP</th><th>BC</th><th>Diff</th><th>Pts</th></tr></thead>
+          <tbody>
+            <tr class="q1"><td><span class="qd dg"></span>1</td><td>🇪🇸 Espagne</td><td>3</td><td>2</td><td>1</td><td>0</td><td>6</td><td>0</td><td>+6</td><td class="pt">7</td></tr>
+            <tr class="q2"><td><span class="qd dg"></span>2</td><td>🇨🇻 Cap-Vert</td><td>3</td><td>0</td><td>3</td><td>0</td><td>3</td><td>3</td><td>0</td><td class="pt">3</td></tr>
+            <tr class="q3"><td><span class="qd db"></span>3</td><td>🇺🇾 Uruguay</td><td>3</td><td>0</td><td>2</td><td>1</td><td>3</td><td>6</td><td><strong>-3</strong></td><td class="pt">2</td></tr>
+            <tr class="out"><td>4</td><td>🇸🇦 Arabie S.</td><td>3</td><td>0</td><td>2</td><td>1</td><td>2</td><td>5</td><td>-3</td><td class="pt">2</td></tr>
+          </tbody>
+        </table></div>
+        <div class="wn ok">✅ Uruguay 3e : 2 pts → éliminé. Victoire Espagne IMPÉRATIVE. Cap-Vert devient 2e.</div>
+      </div>
+
+      <!-- GROUPE I -->
+      <div class="card highlight">
+        <div class="ch"><div class="gb">I</div><div><div class="ct">🇸🇳 France · Norvège · Sénégal · Irak</div></div></div>
+        <div class="ms">
+          <div class="sl r">J1·J2 — Réels</div>
+          <div class="mx rv"><span class="fl">🇫🇷</span><span class="tn">France</span><span class="sc">3–1</span><span class="tn r">Sénégal</span><span class="fl">🇸🇳</span></div>
+          <div class="mx rv"><span class="fl">🇳🇴</span><span class="tn">Norvège</span><span class="sc">4–1</span><span class="tn r">Irak</span><span class="fl">🇮🇶</span></div>
+          <div class="mx rv"><span class="fl">🇫🇷</span><span class="tn">France</span><span class="sc">3–0</span><span class="tn r">Irak</span><span class="fl">🇮🇶</span></div>
+          <div class="mx rv"><span class="fl">🇳🇴</span><span class="tn">Norvège</span><span class="sc">3–2</span><span class="tn r">Sénégal</span><span class="fl">🇸🇳</span></div>
+        </div>
+        <div class="ms">
+          <div class="sl sn">J3 — 26 juin ⚡ FICTIF SÉNÉGAL (voir 3 cas)</div>
+          <div class="mx fi"><span class="fl">🇳🇴</span><span class="tn">Norvège</span><span class="sc">1–2</span><span class="tn r">France</span><span class="fl">🇫🇷</span></div>
+          <div class="mx fsn"><span class="fl">🇸🇳</span><span class="tn"><strong>Sénégal</strong></span><span class="sc">1/2/3–0</span><span class="tn r">Irak</span><span class="fl">🇮🇶</span></div>
+        </div>
+        <div class="ts"><table>
+          <thead><tr><th>#</th><th>Équipe</th><th>J</th><th>V</th><th>N</th><th>D</th><th>BP</th><th>BC</th><th>Diff</th><th>Pts</th></tr></thead>
+          <tbody>
+            <tr class="q2"><td><span class="qd dg"></span>1</td><td>🇳🇴 Norvège</td><td>3</td><td>2</td><td>0</td><td>1</td><td>8</td><td>5</td><td>+3</td><td class="pt">6</td></tr>
+            <tr class="q1"><td><span class="qd dg"></span>2</td><td>🇫🇷 France</td><td>3</td><td>3</td><td>0</td><td>0</td><td>8</td><td>2</td><td>+6</td><td class="pt">9</td></tr>
+            <tr class="q3 snr"><td><span class="qd db"></span>3</td><td>🇸🇳 Sénégal</td><td>3</td><td>1</td><td>0</td><td>2</td><td>4/5/6</td><td>7</td><td>-3/-2/-1</td><td class="pt">3</td></tr>
+            <tr class="out"><td>4</td><td>🇮🇶 Irak</td><td>3</td><td>0</td><td>0</td><td>3</td><td>1</td><td>8</td><td>-7</td><td class="pt">0</td></tr>
+          </tbody>
+        </table></div>
+        <div class="wn ok">🇸🇳 Sénégal 3e du groupe I · voir onglet "3 cas de figure" pour le détail</div>
+      </div>
+
+      <!-- GROUPE J -->
+      <div class="card">
+        <div class="ch"><div class="gb">J</div><div><div class="ct">Argentine · Algérie · Autriche · Jordanie</div></div></div>
+        <div class="ms">
+          <div class="sl f">J3 — 27 juin ⚡ Fictif (CRUCIAL pour Sénégal)</div>
+          <div class="mx fi"><span class="fl">🇦🇷</span><span class="tn">Argentine</span><span class="sc">3–0</span><span class="tn r">Jordanie</span><span class="fl">🇯🇴</span></div>
+          <div class="mx fi"><span class="fl">🇦🇹</span><span class="tn">Autriche</span><span class="sc">2–0</span><span class="tn r">Algérie</span><span class="fl">🇩🇿</span></div>
+        </div>
+        <div class="ts"><table>
+          <thead><tr><th>#</th><th>Équipe</th><th>J</th><th>V</th><th>N</th><th>D</th><th>BP</th><th>BC</th><th>Diff</th><th>Pts</th></tr></thead>
+          <tbody>
+            <tr class="q1"><td><span class="qd dg"></span>1</td><td>🇦🇷 Argentine</td><td>3</td><td>3</td><td>0</td><td>0</td><td>8</td><td>1</td><td>+7</td><td class="pt">9</td></tr>
+            <tr class="q2"><td><span class="qd dg"></span>2</td><td>🇦🇹 Autriche</td><td>3</td><td>2</td><td>0</td><td>1</td><td>5</td><td>3</td><td>+2</td><td class="pt">6</td></tr>
+            <tr class="q3"><td><span class="qd db"></span>3</td><td>🇩🇿 Algérie</td><td>3</td><td>1</td><td>0</td><td>2</td><td>2</td><td>5</td><td><strong>-3</strong></td><td class="pt">3</td></tr>
+            <tr class="out"><td>4</td><td>🇯🇴 Jordanie</td><td>3</td><td>0</td><td>0</td><td>3</td><td>1</td><td>7</td><td>-6</td><td class="pt">0</td></tr>
+          </tbody>
+        </table></div>
+        <div class="wn ok">✅ Algérie 3e : 3 pts, diff -3 → SOUS Sénégal avec 2-0 ou 3-0. Victoire Autriche 2-0 IMPÉRATIVE.</div>
+      </div>
+
+      <!-- GROUPE K -->
+      <div class="card">
+        <div class="ch"><div class="gb">K</div><div><div class="ct">Colombie · Portugal · Congo DR · Ouzbékistan</div></div></div>
+        <div class="ms">
+          <div class="sl f">J3 — 27 juin ⚡ Fictif</div>
+          <div class="mx fi"><span class="fl">🇨🇴</span><span class="tn">Colombie</span><span class="sc">2–0</span><span class="tn r">Portugal</span><span class="fl">🇵🇹</span></div>
+          <div class="mx fi"><span class="fl">🇨🇩</span><span class="tn">Congo DR</span><span class="sc">1–2</span><span class="tn r">Ouzbékistan</span><span class="fl">🇺🇿</span></div>
+        </div>
+        <div class="ts"><table>
+          <thead><tr><th>#</th><th>Équipe</th><th>J</th><th>V</th><th>N</th><th>D</th><th>BP</th><th>BC</th><th>Diff</th><th>Pts</th></tr></thead>
+          <tbody>
+            <tr class="q1"><td><span class="qd dg"></span>1</td><td>🇨🇴 Colombie</td><td>3</td><td>3</td><td>0</td><td>0</td><td>5</td><td>1</td><td>+4</td><td class="pt">9</td></tr>
+            <tr class="q2"><td><span class="qd dg"></span>2</td><td>🇵🇹 Portugal</td><td>3</td><td>1</td><td>1</td><td>1</td><td>6</td><td>4</td><td>+2</td><td class="pt">4</td></tr>
+            <tr class="q3"><td><span class="qd db"></span>3</td><td>🇨🇩 Congo DR</td><td>3</td><td>0</td><td>1</td><td>2</td><td>1</td><td>5</td><td><strong>-4</strong></td><td class="pt">1</td></tr>
+            <tr class="out"><td>4</td><td>🇺🇿 Ouzbékistan</td><td>3</td><td>1</td><td>0</td><td>2</td><td>3</td><td>6</td><td>-3</td><td class="pt">3</td></tr>
+          </tbody>
+        </table></div>
+        <div class="wn ok">✅ Congo DR 3e : 1 pt → éliminé. Aucun danger pour le Sénégal.</div>
+      </div>
+
+      <!-- GROUPE L -->
+      <div class="card">
+        <div class="ch"><div class="gb">L</div><div><div class="ct">Angleterre · Ghana · Croatie · Panama</div></div></div>
+        <div class="ms">
+          <div class="sl f">J3 — 27 juin ⚡ Fictif (CRUCIAL pour Sénégal)</div>
+          <div class="mx fi"><span class="fl">🏴󠁧󠁢󠁥󠁮󠁧󠁿</span><span class="tn">Angleterre</span><span class="sc">2–0</span><span class="tn r">Panama</span><span class="fl">🇵🇦</span></div>
+          <div class="mx fi"><span class="fl">🇬🇭</span><span class="tn">Ghana</span><span class="sc">2–0</span><span class="tn r">Croatie</span><span class="fl">🇭🇷</span></div>
+        </div>
+        <div class="ts"><table>
+          <thead><tr><th>#</th><th>Équipe</th><th>J</th><th>V</th><th>N</th><th>D</th><th>BP</th><th>BC</th><th>Diff</th><th>Pts</th></tr></thead>
+          <tbody>
+            <tr class="q1"><td><span class="qd dg"></span>1</td><td>🇬🇭 Ghana</td><td>3</td><td>2</td><td>1</td><td>0</td><td>3</td><td>0</td><td>+3</td><td class="pt">7</td></tr>
+            <tr class="q2"><td><span class="qd dg"></span>2</td><td>🏴󠁧󠁢󠁥󠁮󠁧󠁿 Angleterre</td><td>3</td><td>2</td><td>1</td><td>0</td><td>6</td><td>2</td><td>+4</td><td class="pt">7</td></tr>
+            <tr class="q3"><td><span class="qd db"></span>3</td><td>🇭🇷 Croatie</td><td>3</td><td>1</td><td>0</td><td>2</td><td>3</td><td>8</td><td><strong>-5</strong></td><td class="pt">3</td></tr>
+            <tr class="out"><td>4</td><td>🇵🇦 Panama</td><td>3</td><td>0</td><td>0</td><td>3</td><td>0</td><td>5</td><td>-5</td><td class="pt">0</td></tr>
+          </tbody>
+        </table></div>
+        <div class="wn ok">✅ Croatie 3e : 3 pts, diff -5 → largement SOUS Sénégal. Victoire Ghana IMPÉRATIVE !</div>
+      </div>
+
+    </div><!-- end grid -->
+  </div>
+
+</div><!-- end main -->
+<script>
+function showMain(id,btn){
+  document.querySelectorAll('.gpage').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.tab-main').forEach(t=>t.classList.remove('active'));
+  document.getElementById('page-'+id).classList.add('active');
+  btn.classList.add('active');
+}
+function showCas(id,btn){
+  document.querySelectorAll('.cas-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.cas-tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('cas-'+id).classList.add('active');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
